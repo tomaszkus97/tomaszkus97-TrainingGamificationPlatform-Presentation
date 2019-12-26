@@ -1,0 +1,31 @@
+ <mat-card class="example-container">
+    <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>Create new challenge!</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>      
+        <p>
+            <mat-form-field appearance="outline" class="form-filed" style="display: inline;">
+              <input name="title" matInput [(ngModel)]="challenge.title" placeholder="Challenge title" required>
+            </mat-form-field>
+          </p>
+      
+        <mat-form-field appearance="outline" class="form-filed" style="display: inline;">
+          <textarea name="description" matInput  [(ngModel)]="challenge.description" placeholder="Challenge description" required></textarea>
+        </mat-form-field>
+
+          <div class="level-picker">
+            <mat-radio-group name="level" [(ngModel)]="challenge.level">
+              <mat-radio-button value="auto">Red</mat-radio-button>
+              <mat-radio-button value="always">Orange</mat-radio-button>
+              <mat-radio-button value="never">Green</mat-radio-button>
+              <mat-radio-button value="never">Yellow</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <mat-checkbox name="obligatory" class="obligatory-picker" [(ngModel)]="challenge.obligatory">Make obligatory to finish level</mat-checkbox>
+      </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center center">
+            <button mat-button color="primary">Save</button>
+            <button mat-button color="warn">Cancel</button>
+        </mat-card-actions>
+    </mat-card>

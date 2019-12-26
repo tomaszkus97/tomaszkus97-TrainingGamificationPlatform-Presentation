@@ -1,0 +1,18 @@
+.card{
+    margin-top: 50px;
+    width: 400px;
+    background-color: #99a0ad;
+    color: white;
+    text-align: center;
+}
+
+.photo{
+    width: 380px;
+    margin:15px;
+    border-radius: 5px;
+    margin-bottom: 0px;
+}
+
+.challenge{
+    margin: 1px;
+}

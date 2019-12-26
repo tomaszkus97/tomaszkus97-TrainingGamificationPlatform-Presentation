@@ -1,0 +1,13 @@
+table {
+    width: 100%;
+  }
+  .card {
+    min-width: 80%;
+    margin: 25px;
+  }
+  .icon-button{
+    cursor: pointer;
+}
+.icon-button:hover{
+    color: #b0b0b0;
+}

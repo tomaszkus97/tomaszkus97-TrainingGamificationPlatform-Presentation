@@ -1,0 +1,13 @@
+.challenges{
+    width:400px;
+}
+.card{
+    background-color: #7284a8;
+    margin-top: 50px;
+    text-align: center;
+    color: white;
+}
+
+.challenge{
+    margin: 1px;
+}

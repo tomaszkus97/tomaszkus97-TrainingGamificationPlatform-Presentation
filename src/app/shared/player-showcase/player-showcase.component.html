@@ -1,0 +1,18 @@
+<mat-card class="showcase-container">
+    <div *ngIf="player">
+        <img class="round" src="../../../assets/tennis-player.png" alt="user"/>
+        <h1>{{player.name}}</h1>
+        <h4>Tennis player on level Red</h4>
+        <mat-divider></mat-divider>
+        <div class="points-container">
+            <h3>Points to next level</h3>
+            <mat-progress-bar mode="determinate" color="warn" value="40"></mat-progress-bar>
+            <h3>{{player.points}}</h3>
+        </div>
+        <mat-divider></mat-divider>
+        <h3>Groups:</h3>
+        <mat-chip-list fxLayoutAlign="center center" aria-label="Groups">
+            <mat-chip *ngFor="let group of player.assignedGroups" color="accent" selected>Monday 18:00</mat-chip>
+        </mat-chip-list>
+    </div>
+</mat-card>

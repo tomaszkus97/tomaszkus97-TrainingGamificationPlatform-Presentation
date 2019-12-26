@@ -1,0 +1,17 @@
+<div fxLayoutAlign="center center">
+<div fxLayout="row" fxLayoutGap="30px" fxLayoutAlign="space-evenly start" >
+    <app-player-showcase fxLayoutAlign="center center" ></app-player-showcase>
+    <div class="challenges">
+        <mat-card class="card">
+            <h1 style="margin-bottom: 10px;">Optional challenges</h1>
+            <mat-divider></mat-divider>
+            <mat-accordion>
+                <app-challenge-item class="challenge" [challenge]="challenge"></app-challenge-item>
+                <app-challenge-item class="challenge" [challenge]="challenge"></app-challenge-item>
+            </mat-accordion>
+        </mat-card>
+    </div>
+    <app-level [challenge]="challenge"></app-level>
+</div>
+</div>
+

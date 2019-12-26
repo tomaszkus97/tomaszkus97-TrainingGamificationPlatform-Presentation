@@ -1,0 +1,11 @@
+<div class="menu" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="center center">
+    <button [routerLink]="['schedule']">
+        <app-tile color="#009688" icon="today" text="Manage trainings"></app-tile>
+    </button>
+    <button (click)="openDialog()">
+        <app-tile color="#FFEB3B" icon="library_add" text="Create challenge"></app-tile>
+    </button>
+    <button [routerLink]="['attendance']">
+        <app-tile color="#00BCD4" icon="people" text="Take attendance"></app-tile>
+    </button>
+</div>

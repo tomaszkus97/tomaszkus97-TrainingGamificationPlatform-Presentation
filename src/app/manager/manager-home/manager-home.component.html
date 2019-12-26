@@ -1,0 +1,11 @@
+<div class="menu" fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="center center">
+    <button [routerLink]="['players']">
+        <app-tile color="#009688" icon="people" text="Manage players"></app-tile>
+    </button>
+    <button (click)="openAddUser()">
+        <app-tile color="#FFEB3B" icon="person_add" text="Add user"></app-tile>
+    </button>
+    <button (click)="openCreateGroup()">
+        <app-tile color="#00BCD4" icon="group_add" text="Create group"></app-tile>
+    </button>
+</div>

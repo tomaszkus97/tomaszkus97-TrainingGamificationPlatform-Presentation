@@ -1,0 +1,16 @@
+<mat-expansion-panel class="panel" >
+    <mat-expansion-panel-header class="header">
+        <mat-panel-title >
+            <mat-icon style="color:white; margin-top: 7px; font-size:40px;">check_circle_outline</mat-icon>
+        </mat-panel-title>
+        <mat-panel-description>
+                <h3 style="color:white;"> {{challenge.title}}</h3>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <img style="width: autp;" src="../../../assets/drill.png" alt="drill"/>
+    <p style="color:white;" class="description">{{challenge.description}}</p>
+    <p style="color:white;">
+        <mat-icon>star_border</mat-icon>
+        {{challenge.points}}
+    </p>  
+</mat-expansion-panel>
