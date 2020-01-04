@@ -18,11 +18,13 @@ import {
     MatSelectModule,
     MatDividerModule,
     MatChipsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatSnackBarModule
   } from '@angular/material';
   import {FlexLayoutModule} from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 @NgModule({
   imports: [
@@ -47,7 +49,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatChipsModule,
     MatExpansionModule,
     NgxMaterialTimepickerModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
   ],
   exports: [
     MatSidenavModule,
@@ -71,7 +74,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatChipsModule,
     MatExpansionModule,
     NgxMaterialTimepickerModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule {}

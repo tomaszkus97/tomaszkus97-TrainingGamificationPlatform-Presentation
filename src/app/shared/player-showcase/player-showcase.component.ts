@@ -27,7 +27,9 @@ const PlayerByIdQuery =  gql`
   player(id: $pid){
     id
     name
-    assignedGroups
+    groups{
+      name
+    }
     points
     level
   }

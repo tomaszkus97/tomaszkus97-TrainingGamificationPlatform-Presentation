@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Player } from 'src/app/shared/models/player.model';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarModule } from '@angular/material';
 import { PlayerShowcaseComponent } from 'src/app/shared/player-showcase/player-showcase.component';
 import { CoachModel } from 'src/app/shared/models/coach-model';
+import { SnackBarService } from 'src/app/shared/snack-bar.service';
 
 const AllPlayersQuery = gql`
   query GetPlayers {
@@ -78,16 +79,21 @@ export class PlayersManagementComponent implements OnInit {
 
   displayedColumns = ['name', 'age', 'level', 'groups','assignGroup','profile'];
 
-  constructor(private apollo: Apollo, private dialog: MatDialog) { }
+  constructor(private apollo: Apollo, private dialog: MatDialog, private _snackBar: SnackBarService) { }
 
-  ngOnInit() {
+  getData(){
     this.apollo.watchQuery<MangementQueryResponse>({
-      query: AllPlayersQuery
+      query: AllPlayersQuery,
+      fetchPolicy: 'network-only' 
     }).valueChanges.subscribe((response) => {
       this.players = response.data.players;
       this.coaches = response.data.coaches;
       this.allGroups = response.data.groups
     });
+  }
+
+  ngOnInit() {
+    this.getData();
   }
 
   openShowcase(playerId){
@@ -96,7 +102,6 @@ export class PlayersManagementComponent implements OnInit {
   }
 
   onGroupChange(groupId, playerId){
-    console.log(groupId, playerId);
     this.apollo.mutate({
       mutation: assignPlayer,
       variables: {
@@ -106,8 +111,13 @@ export class PlayersManagementComponent implements OnInit {
     }).subscribe(({ data }) => {
       console.log('got data', data);
     },(error) => {
+      this._snackBar.openDanger('something went wrong');
       console.log('there was an error sending the query', error);
-    });
+    },
+    ()=> {this._snackBar.openSuccess('successfully assigned player to group');
+          this.getData();
+          console.log(this.players)
+        });
   }
 
 }

@@ -5,6 +5,7 @@ import { RegisterPlayerModel } from 'src/app/shared/models/create-player.model';
 import { LevelName } from 'src/app/shared/enums/level.enum';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
+import { SnackBarService } from 'src/app/shared/snack-bar.service';
 
 const RegisterPlayerMutation = gql`
   mutation RegisterPlayer($model: RegisterPlayerModel){
@@ -31,7 +32,8 @@ export class AddUserComponent implements OnInit {
   model: RegisterPlayerModel;
   levels = LevelName;
 
-  constructor(private apollo: Apollo, public dialogRef: MatDialogRef<AddUserComponent>) {
+  constructor(private apollo: Apollo, public dialogRef: MatDialogRef<AddUserComponent>,
+    private snackBar: SnackBarService) {
     this.coach = new RegisterCoachModel();
     this.model = new RegisterPlayerModel();
    }
@@ -50,8 +52,11 @@ export class AddUserComponent implements OnInit {
       console.log('got data', data);
     },(error) => {
       console.log('there was an error sending the query', error);
+      this.dialogRef.close();
+      this.snackBar.openDanger("Something went wrong");
     }, () => {
-      console.log('coach registered successfully');
+      this.dialogRef.close();
+      this.snackBar.openSuccess('coach registered successfully');
     });
   }
   
@@ -66,8 +71,11 @@ export class AddUserComponent implements OnInit {
       console.log('got data', data);
     },(error) => {
       console.log('there was an error sending the mutation', error);
+      this.dialogRef.close();
+      this.snackBar.openDanger("Something went wrong");
     }, () => {
-      console.log('player registered successfully');
+      this.dialogRef.close();
+      this.snackBar.openSuccess("Player registered successfully");
     });
   }
 

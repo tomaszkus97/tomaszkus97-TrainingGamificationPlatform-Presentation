@@ -11,3 +11,12 @@ body {
 .timepicker-backdrop-overlay {
     z-index: 10000000 !important;
 }
+
+.success-snackbar {
+    background-color: #00C851;
+}
+
+
+.warn-snackbar {
+    background-color: #ff4444;
+}

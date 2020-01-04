@@ -5,4 +5,5 @@ export class Group {
     day: string;
     hour: string;
     id: string;
+    name: string;
 }

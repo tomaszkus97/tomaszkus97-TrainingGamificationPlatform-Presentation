@@ -1,7 +1,7 @@
 <div class="card" fxLayout="column" fxLayoutAlign="center center">
         <mat-card class="container">
-            <app-group *ngFor="let group of todaysGroups" [group]=group [displayedColumns] = 'displayedColumns'>
-                <p>{{group.hour}}</p>
+            <app-group *ngFor="let group of todaysGroups" [isAttendance]="true" [group]=group [displayedColumns] = 'displayedColumns' class="groups">
+                <p>{{group.name}}</p>
             </app-group>
         </mat-card>
     </div>

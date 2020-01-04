@@ -27,6 +27,7 @@ export class CoachGroupsComponent implements OnInit {
            id:"1",
            day: "Monday",
            hour: "18:00",
+           name: "",
            players: [
             {id: "1", name: "Player", surname: "One", age: 7 },
             {id: "2", name: "Player", surname: "Two", age: 8 },
@@ -37,6 +38,7 @@ export class CoachGroupsComponent implements OnInit {
             id:"1",
             day: "Monday",
             hour: "19:00",
+            name: "",
             players: [
              {id: "1", name: "Player", surname: "One", age: 7 },
              {id: "2", name: "Player", surname: "Two", age: 8 }
@@ -51,6 +53,7 @@ export class CoachGroupsComponent implements OnInit {
             id:"1",
              day: "Wednesday",
              hour: "18:00",
+             name:"",
              players: [
               {id: "1", name: "Player", surname: "One", age: 7 },
               {id: "2", name: "Player", surname: "Two", age: 8 },
@@ -61,6 +64,7 @@ export class CoachGroupsComponent implements OnInit {
               id:"1",
               day: "Wednesday",
               hour: "19:00",
+              name:"",
               players: [
                {id: "1", name: "Player", surname: "One", age: 7 },
                {id: "2", name: "Player", surname: "Two", age: 8 }
@@ -77,7 +81,7 @@ export class CoachGroupsComponent implements OnInit {
     .watchQuery<Query>({
       query: gql`
         {
-          coachSchedule(coachId:"CB07D988-5693-4544-A33F-CC80ECB2CEA9"){
+          coachSchedule(coachId:"c085d754-3373-48b1-a5a6-1ef09cac1d08"){
     day
     groups{
       day

@@ -51,8 +51,8 @@
               </div>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-raised-button color="primary">Assign challenge</button>
-            <button mat-raised-button color="primary" (click)="fillAttendance()">Fill attendance</button>
+            <button *ngIf="!isAttendance" mat-raised-button color="primary">Assign challenge</button>
+            <button *ngIf="isAttendance" mat-raised-button color="primary" (click)="fillAttendance()">Fill attendance</button>
           </mat-card-actions>
       </mat-card>
     </div>

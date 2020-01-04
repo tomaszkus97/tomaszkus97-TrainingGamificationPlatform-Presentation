@@ -27,6 +27,7 @@ export class GroupComponent implements OnInit {
   @Input() group: Group;
 
   @Input() displayedColumns: string[];
+  @Input() isAttendance: boolean;
 
   players: PlayerAttendance;
   attendance: AttendanceModel;

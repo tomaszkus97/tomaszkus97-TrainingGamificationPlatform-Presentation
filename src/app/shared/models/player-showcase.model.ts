@@ -15,9 +15,7 @@ export class PlayerShowcaseModel{
     };
     points: number;
     finishedChallenges: string[];
-    assignedGroups: {
-        day: string;
-        hour: string;
-        level: LevelName
+    groupsroups: {
+        name: string
     }[];
 }

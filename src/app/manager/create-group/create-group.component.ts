@@ -7,6 +7,7 @@ import gql from 'graphql-tag';
 import { MatDialogRef } from '@angular/material';
 import { CreateChallengeComponent } from 'src/app/coach/create-challenge/create-challenge.component';
 import { CoachModel } from 'src/app/shared/models/coach-model';
+import { SnackBarService } from 'src/app/shared/snack-bar.service';
 
 export type CoachesQueryResponse = {
   coaches: CoachModel[];
@@ -40,7 +41,8 @@ export class CreateGroupComponent implements OnInit {
   model: CreateGroupModel;
   allCoaches: CoachModel[];
 
-  constructor(private apollo: Apollo, public dialogRef: MatDialogRef<CreateChallengeComponent>) {
+  constructor(private apollo: Apollo, public dialogRef: MatDialogRef<CreateChallengeComponent>,
+    private snackBar: SnackBarService) {
     this.model = new CreateGroupModel();
    }
 
@@ -54,9 +56,12 @@ export class CreateGroupComponent implements OnInit {
     }).subscribe(({ data }) => {
       console.log('got data', data);
     },(error) => {
+      this.dialogRef.close();
+      this.snackBar.openDanger("Something went wrong");
       console.log('there was an error sending the query', error);
     }, () => {
-      console.log('completed successfully');
+      this.dialogRef.close();
+      this.snackBar.openSuccess('Group created successfully');
     });
   }
 
