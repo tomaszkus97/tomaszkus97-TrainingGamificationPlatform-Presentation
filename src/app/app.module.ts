@@ -13,6 +13,7 @@ import { ManagerModule } from './manager/manager.module';
 import { AuthModule } from './auth/auth.module';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,10 @@ import { GraphQLModule } from './graphql.module';
     HttpClientModule,
     GraphQLModule
   ],
-  providers: [],
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

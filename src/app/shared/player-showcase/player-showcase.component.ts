@@ -3,7 +3,7 @@ import { PlayerShowcaseModel } from '../models/player-showcase.model';
 import { LevelName } from '../enums/level.enum';
 import {Apollo} from 'apollo-angular';
 import gql from 'graphql-tag';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 export type Query = {
   player: PlayerShowcaseModel;
@@ -54,7 +54,7 @@ export class PlayerShowcaseComponent implements OnInit {
       .watchQuery<Query>({
         query: PlayerByIdQuery,
         variables: {
-          pid: this.data.playerId,
+          pid: this.data.playerId || localStorage.getItem("Id"),
         },
       })
       .valueChanges.subscribe(({data}) => {

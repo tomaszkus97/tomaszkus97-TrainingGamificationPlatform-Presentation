@@ -14,18 +14,18 @@
         </mat-form-field>
 
           <div class="level-picker">
-            <mat-radio-group name="level" [(ngModel)]="challenge.level">
-              <mat-radio-button value="auto">Red</mat-radio-button>
-              <mat-radio-button value="always">Orange</mat-radio-button>
-              <mat-radio-button value="never">Green</mat-radio-button>
-              <mat-radio-button value="never">Yellow</mat-radio-button>
+            <mat-radio-group name="level" [(ngModel)]="challenge.levelId">
+              <mat-radio-button value="1">Red</mat-radio-button>
+              <mat-radio-button value="2">Orange</mat-radio-button>
+              <mat-radio-button value="3">Green</mat-radio-button>
+              <mat-radio-button value="4">Yellow</mat-radio-button>
             </mat-radio-group>
           </div>
 
-          <mat-checkbox name="obligatory" class="obligatory-picker" [(ngModel)]="challenge.obligatory">Make obligatory to finish level</mat-checkbox>
+          <mat-checkbox name="obligatory" class="obligatory-picker" [(ngModel)]="challenge.isObligatory">Make obligatory to finish level</mat-checkbox>
       </mat-card-content>
         <mat-card-actions fxLayoutAlign="center center">
-            <button mat-button color="primary">Save</button>
-            <button mat-button color="warn">Cancel</button>
+            <button mat-button color="primary" (click)="onCreateGroup()">Save</button>
+            <button mat-button color="warn" (click)="onCancel()">Cancel</button>
         </mat-card-actions>
     </mat-card>
